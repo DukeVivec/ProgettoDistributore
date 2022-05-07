@@ -7,6 +7,8 @@ package gestionemacchinettacaffe;
 import gestionemacchinettacaffe.model.Bevanda;
 import gestionemacchinettacaffe.model.Distributore;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -39,7 +41,8 @@ public class Main {
                 continue;
             }
             Bevanda bevanda = bevande[sceltaInt-1];
-            System.out.println("hai selezionato " + bevanda.getNome());
+            String nomeFinale = bevanda.getNome();
+            System.out.println("hai selezionato " + nomeFinale);
             String[] tipologie = bevanda.getTipologie();
             if(tipologie != null){
                 System.out.println("seleziona la tipologia ↓↓↓");
@@ -56,9 +59,22 @@ public class Main {
                     System.out.println("scelta non valida");
                     continue;
                 }
-            }
-            
+                nomeFinale = tipologie[sottosceltaInt-1];
+                System.out.println("hai aggiornato la tua scelta con " + nomeFinale);
+            }    
             System.out.printf("inserire il seguente importo di € %.2f\n", bevanda.getPrezzo());
+            
+            System.out.println("La bevanda: " + nomeFinale + " e' in preparazione");
+                for (int i = 0; i < 10; i++) {
+                    System.out.print("#");
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                System.out.println("\nLa bevanda e pronta, premere un tasto per continuare");
+                scanner.nextLine();
             
 //            switch(sceltaInt){
 //                case 1:{

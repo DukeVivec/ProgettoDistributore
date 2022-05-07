@@ -46,7 +46,7 @@ public class Te extends Bevanda{
         TeaType[] enumConstants = tipologia.getDeclaringClass().getEnumConstants();
         String[] valori = new String[enumConstants.length];
         for (int i = 0; i < valori.length; i++) {
-            valori[i] = enumConstants[i].name();
+            valori[i] = enumConstants[i].getNiceName();
         }
         return valori;
     }
