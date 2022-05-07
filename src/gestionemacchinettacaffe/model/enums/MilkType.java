@@ -9,8 +9,17 @@ package gestionemacchinettacaffe.model.enums;
  * @author Megaport
  */
 public enum MilkType {
-    MACCHIATO,
-    CAFFELATTE,
-    SEMPLICE,
+    MACCHIATO("Latte macchiato"),
+    CAFFELATTE("Caffelatte"),
+    SEMPLICE("Latte bianco");
     
+    private String niceName;
+
+    private MilkType(String niceName) {
+        this.niceName = niceName;
+    }
+
+    public String getNiceName() {
+        return niceName;
+    }
 }

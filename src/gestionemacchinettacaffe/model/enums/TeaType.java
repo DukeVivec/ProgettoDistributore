@@ -9,7 +9,17 @@ package gestionemacchinettacaffe.model.enums;
  * @author Megaport
  */
 public enum TeaType {
-    LIMONE,
-    PESCA,
-    VERDE;
+    LIMONE("Te al limone"),
+    PESCA("Te alla pesca"),
+    VERDE("Te verde");
+    
+    private String niceName;
+
+    private TeaType(String niceName) {
+        this.niceName = niceName;
+    }
+
+    public String getNiceName() {
+        return niceName;
+    }
 }

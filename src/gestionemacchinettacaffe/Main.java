@@ -24,15 +24,63 @@ public class Main {
         do{
             System.out.println("Selezionare la bevanda desiderata ↓↓↓"); 
             System.out.println(" - digita quit per uscire -");
-            System.out.println("------------------------------------");
+            System.out.println("-------------------------");
             for (Bevanda bevanda : bevande) {
                 System.out.printf("" + bevanda.getId() + ") " + bevanda.getNome() + "\t" + "%.2f\n", bevanda.getPrezzo());
             }
-            System.out.println("------------------------------------");
+            System.out.println("-------------------------");
             String scelta = scanner.nextLine();
             if(scelta.equals("quit")){
                 return;
             }
+            int sceltaInt = Integer.parseInt(scelta);
+            if(sceltaInt > 7 || sceltaInt < 1){
+                System.out.println("scelta non valida");
+                continue;
+            }
+            Bevanda bevanda = bevande[sceltaInt-1];
+            System.out.println("hai selezionato " + bevanda.getNome());
+            String[] tipologie = bevanda.getTipologie();
+            if(tipologie != null){
+                System.out.println("seleziona la tipologia ↓↓↓");
+                System.out.println("-------------------------");
+                int id = 1;
+                for (String tipo : tipologie) {
+                    System.out.println("\t" + id + ") " + tipo);
+                    id++;
+                }
+                System.out.println("-------------------------");
+                String sottoscelta = scanner.nextLine();
+                int sottosceltaInt = Integer.parseInt(sottoscelta);
+                if(sottosceltaInt < 1 || sottosceltaInt > tipologie.length){
+                    System.out.println("scelta non valida");
+                    continue;
+                }
+            }
+            
+            System.out.printf("inserire il seguente importo di € %.2f\n", bevanda.getPrezzo());
+            
+//            switch(sceltaInt){
+//                case 1:{
+//                    
+//                    break;
+//                }
+//                case 2:{
+//                    break;
+//                }
+//                case 3:{
+//                    break;
+//                }
+//                case 4:{
+//                    break;
+//                }
+//                case 5:{
+//                    break;
+//                }
+//                case 6:{
+//                    break;
+//                }
+//            }
         }while(true);
         
     }

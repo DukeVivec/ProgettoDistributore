@@ -9,6 +9,18 @@ package gestionemacchinettacaffe.model.enums;
  * @author Megaport
  */
 public enum ChocoType {
-    FONDENTE,
-    AL_LATTE;
+    FONDENTE("Cioccolato fondente"),
+    AL_LATTE("Cioccolato al latte");
+    
+    private String niceName;
+
+    private ChocoType(String niceName) {
+        this.niceName = niceName;
+    }
+
+    public String getNiceName() {
+        return niceName;
+    }
+    
+    
 }

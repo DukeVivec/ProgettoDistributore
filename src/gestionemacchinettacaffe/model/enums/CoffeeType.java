@@ -9,7 +9,17 @@ package gestionemacchinettacaffe.model.enums;
  * @author Megaport
  */
 public enum CoffeeType {
-    MACCHIATO,
-    LUNGO,
-    CORTO;
+    MACCHIATO("Caffe' macchiato"),
+    LUNGO("Caffe' lungo"),
+    CORTO("Caffe' corto");
+    
+    private String niceName;
+
+    private CoffeeType(String niceName) {
+        this.niceName = niceName;
+    }
+
+    public String getNiceName() {
+        return niceName;
+    } 
 }
