@@ -6,6 +6,7 @@ package gestionemacchinettacaffe;
 
 import gestionemacchinettacaffe.model.Bevanda;
 import gestionemacchinettacaffe.model.Distributore;
+import gestionemacchinettacaffe.model.enums.MoneyType;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +25,7 @@ public class Main {
         Bevanda[] bevande = distributore.getBevande();
         Scanner scanner = new Scanner(System.in);
         do{
+            //<editor-fold defaultstate="collapsed" desc="MENU PRINCIPALE">
             System.out.println("Selezionare la bevanda desiderata ↓↓↓"); 
             System.out.println(" - digita quit per uscire -");
             System.out.println("-------------------------");
@@ -35,6 +37,7 @@ public class Main {
             if(scelta.equals("quit")){
                 return;
             }
+            //</editor-fold>
             int sceltaInt = Integer.parseInt(scelta);
             if(sceltaInt > 7 || sceltaInt < 1){
                 System.out.println("scelta non valida");
@@ -63,6 +66,17 @@ public class Main {
                 System.out.println("hai aggiornato la tua scelta con " + nomeFinale);
             }    
             System.out.printf("inserire il seguente importo di € %.2f\n", bevanda.getPrezzo());
+            System.out.println("-------------------------");
+            int id2 = 1;
+            for (MoneyType money : MoneyType.values()) {
+                System.out.printf("\t> " + id2 + ") € %.2f\n", money.getValue());
+                id2++;
+            }
+            
+            
+            
+            
+            
             
             System.out.println("La bevanda: " + nomeFinale + " e' in preparazione");
                 for (int i = 0; i < 10; i++) {
