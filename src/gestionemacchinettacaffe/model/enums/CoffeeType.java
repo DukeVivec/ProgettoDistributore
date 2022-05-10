@@ -4,11 +4,13 @@
  */
 package gestionemacchinettacaffe.model.enums;
 
+import gestionemacchinettacaffe.model.NicelyPrintable;
+
 /**
  *
  * @author Megaport
  */
-public enum CoffeeType {
+public enum CoffeeType implements NicelyPrintable, SubType {
     MACCHIATO("Caffe' macchiato"),
     LUNGO("Caffe' lungo"),
     CORTO("Caffe' corto");
@@ -19,7 +21,17 @@ public enum CoffeeType {
         this.niceName = niceName;
     }
 
+    @Override
     public String getNiceName() {
         return niceName;
     } 
+    
+    @Override
+    public String[] getTipologie() {
+        String[] valori = new String[ChocoType.values().length];
+        for (int i = 0; i < valori.length; i++) {
+             valori[i] = ChocoType.values()[i].getNiceName();
+         }
+        return valori;
+    }
 }

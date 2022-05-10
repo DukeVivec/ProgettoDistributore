@@ -4,11 +4,13 @@
  */
 package gestionemacchinettacaffe.model.enums;
 
+import gestionemacchinettacaffe.model.NicelyPrintable;
+
 /**
  *
  * @author Megaport
  */
-public enum TeaType {
+public enum TeaType  implements NicelyPrintable, SubType{
     LIMONE("Te al limone"),
     PESCA("Te alla pesca"),
     VERDE("Te verde");
@@ -19,7 +21,17 @@ public enum TeaType {
         this.niceName = niceName;
     }
 
+    @Override
     public String getNiceName() {
         return niceName;
+    }
+    
+    @Override
+    public String[] getTipologie() {
+        String[] valori = new String[ChocoType.values().length];
+        for (int i = 0; i < valori.length; i++) {
+             valori[i] = ChocoType.values()[i].getNiceName();
+         }
+        return valori;
     }
 }
