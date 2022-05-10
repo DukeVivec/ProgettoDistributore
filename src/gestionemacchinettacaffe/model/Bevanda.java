@@ -10,20 +10,25 @@ import gestionemacchinettacaffe.model.enums.SubType;
  *
  * @author Megaport
  */
-public class Bevanda<T extends Enum<T>> {
-    private Enum<T> subType;
+public final class Bevanda<T extends Enum<T> & SubType> {
+    private final Enum<T> defaultSubType;
     private final String nome;
     private final float prezzo;
     private final int id;
 
-    public Bevanda(String nome, float prezzo, int id) {
+    public Bevanda(String nome, float prezzo, int id, T defaultSubType) {
         this.nome = nome;
         this.prezzo = prezzo;
         this.id = id;
+        this.defaultSubType = defaultSubType;
     }
 
     public String getNome() {
         return nome;
+    }
+
+    public Enum<T> getDefaultSubType() {
+        return defaultSubType;
     }
 
     public float getPrezzo() {
@@ -35,9 +40,6 @@ public class Bevanda<T extends Enum<T>> {
         return id;
     }
 
-    public Enum<T> getSubType() {
-        return subType;
-    }
     
 //    //come classe astratta, tutte le classi che la estendono devono implementare questo metodo
 //    //e' la base per la stampa delle enum in array di stringe

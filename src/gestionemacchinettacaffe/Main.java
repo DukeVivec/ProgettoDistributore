@@ -53,7 +53,7 @@ public class Main {
             Bevanda bevanda = bevande[sceltaInt - 1];
             String nomeFinale = bevanda.getNome();
             System.out.println("hai selezionato " + nomeFinale);
-            String[] tipologie = ((SubType)bevanda.getSubType()).getTipologie();
+            String[] tipologie = ((SubType)bevanda.getDefaultSubType()).getTipologie();
             if (tipologie != null) {
                 System.out.println("seleziona la tipologia ↓↓↓");
                 System.out.println("-------------------------");

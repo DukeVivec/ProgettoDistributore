@@ -20,12 +20,12 @@ public class Distributore {
 
     public Distributore() {
         this.bevande = new Bevanda[6];
-        this.bevande[0] = new Bevanda<CoffeeType>("Caffe", 0.60f, 1);
-        this.bevande[1] = new Bevanda<CoffeeType>("Caffe deca", 0.70f, 2);
-        this.bevande[2] = new Bevanda("Cappuccino", 1.10f, 3);
-        this.bevande[3] = new Bevanda<ChocoType>("Cioccolata", 1.40f, 4);
-        this.bevande[4] = new Bevanda<MilkType>("Latte", 0.80f, 5);
-        this.bevande[5] = new Bevanda<TeaType>("Te caldo", 1.0f, 6);
+        this.bevande[0] = new Bevanda<CoffeeType>("Caffe", 0.60f, 1, CoffeeType.CORTO);
+        this.bevande[1] = new Bevanda<CoffeeType>("Caffe deca", 0.70f, 2, CoffeeType.CORTO);
+        this.bevande[2] = new Bevanda("Cappuccino", 1.10f, 3, null);
+        this.bevande[3] = new Bevanda<ChocoType>("Cioccolata", 1.40f, 4, ChocoType.FONDENTE);
+        this.bevande[4] = new Bevanda<MilkType>("Latte", 0.80f, 5, MilkType.SEMPLICE);
+        this.bevande[5] = new Bevanda<TeaType>("Te caldo", 1.0f, 6, TeaType.LIMONE);
         //this.bevande[6] = new Te(false, "Te freddo", 1.0f, 7);  
     }
 
