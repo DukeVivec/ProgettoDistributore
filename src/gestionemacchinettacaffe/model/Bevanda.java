@@ -8,45 +8,38 @@ package gestionemacchinettacaffe.model;
  *
  * @author Megaport
  */
-public abstract class Bevanda {
-    private String nome;
-    private float prezzo;
-    private int id;
+public class Bevanda {
+    private final String nome;
+    private final float prezzo;
+    private final int id;
+    private final String [] sottotipi;
 
-    public Bevanda() {
-    }
 
-    public Bevanda(String nome, float prezzo, int id) {
+    public Bevanda(String nome, float prezzo, int id, String ... sottotipi) {
         this.nome = nome;
         this.prezzo = prezzo;
         this.id = id;
+        this.sottotipi = sottotipi;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 
     public float getPrezzo() {
         return prezzo;
     }
 
-    public void setPrezzo(float prezzo) {
-        this.prezzo = prezzo;
-    }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
     
     //come classe astratta, tutte le classi che la estendono devono implementare questo metodo
     //e' la base per la stampa delle enum in array di stringe
-    public abstract String[] getTipologie(); 
+    public String[] getSottotipi(){
+        return this.sottotipi;
+    }
 }
