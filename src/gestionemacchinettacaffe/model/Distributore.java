@@ -13,7 +13,7 @@ public class Distributore {
     private Bevanda[] bevande;
 
     public Distributore() {
-        this.bevande = new Bevanda[7];
+        this.bevande = new Bevanda[6];
         this.bevande[0] = new Bevanda("Caffe", 0.60f, 1, "Caffé corto", "Caffé lungo", "Caffé macchiato");
         this.bevande[1] = new Bevanda("Caffe deca", 0.70f, 2, "Caffé corto", "Caffé lungo", "Caffé macchiato");
         this.bevande[2] = new Bevanda("Cappuccino", 1.10f, 3, "Con schiuma", "Senza schiuma");
