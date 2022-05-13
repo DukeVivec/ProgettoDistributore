@@ -28,7 +28,7 @@ public class Distributore {
     }
 
     public Bevanda seleziona(int id) {
-        if (id > 0 && id < bevande.length) { //validazione dell'id
+        if (id > 0 && id <= bevande.length) { //validazione dell'id
             return this.bevande[id - 1];
         } else {
             return null;
