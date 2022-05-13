@@ -14,7 +14,10 @@ public class Bevanda {
     private final int id;
     private final String [] sottotipi;
 
-
+    //il varargs permette di passare in argomento al metodo che lo utilizza
+    //0 o più oggetti dello stesso tipo, i quali poi verranno automaticamente
+    //immagazzinati in un array con il nome scelto nella dichiarazione del
+    //varargs. 
     public Bevanda(String nome, float prezzo, int id, String ... sottotipi) {
         this.nome = nome;
         this.prezzo = prezzo;
@@ -37,8 +40,6 @@ public class Bevanda {
     }
 
     
-    //come classe astratta, tutte le classi che la estendono devono implementare questo metodo
-    //e' la base per la stampa delle enum in array di stringe
     public String[] getSottotipi(){
         return this.sottotipi;
     }
