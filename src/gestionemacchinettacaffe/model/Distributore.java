@@ -20,7 +20,6 @@ public class Distributore {
         this.bevande[3] = new Bevanda("Cioccolata", 1.40f, 4, "Al latte", "Fondente");
         this.bevande[4] = new Bevanda("Latte", 0.80f, 5, "Semplice", "Macchiato");
         this.bevande[5] = new Bevanda("Te caldo", 1.0f, 6, "Al limone", "Alla pesca", "Te verde"); 
-
     }
 
     public Bevanda[] getBevande() {

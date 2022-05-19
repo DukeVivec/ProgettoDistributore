@@ -7,6 +7,7 @@ package gestionemacchinettacaffe;
 import gestionemacchinettacaffe.model.Bevanda;
 import gestionemacchinettacaffe.model.Distributore;
 import gestionemacchinettacaffe.model.enums.MoneyType;
+import gestionemacchinettacaffe.model.enums.SugarQuantity;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -39,6 +40,7 @@ public class Main {
                 return;
             }
             //</editor-fold>
+            //<editor-fold defaultstate="collapsed" desc="SELEZIONE BEVANDE">
             int sceltaInt = -1;
             try {
                 sceltaInt = Integer.parseInt(scelta);
@@ -53,6 +55,8 @@ public class Main {
             Bevanda bevanda = distributore.seleziona(sceltaInt);
             String nomeFinale = bevanda.getNome();
             System.out.println("hai selezionato " + nomeFinale);
+            //</editor-fold>
+            //<editor-fold defaultstate="collapsed" desc="SOTTOTIPOLOGIE">
             String[] tipologie = bevanda.getSottotipi();
             if (tipologie != null && tipologie.length != 0) {//se è stata inserita qualche sottotipo
                 while (true) {
@@ -83,6 +87,32 @@ public class Main {
                     break;
                 }
             }
+            //</editor-fold>
+            //<editor-fold defaultstate="collapsed" desc="ZUCCHERO">
+            while(true){
+                System.out.println("Selezionare la quantita' di zucchero desiderata");
+                System.out.println(" 1) " + SugarQuantity.NONE.getPaint());
+                System.out.println(" 2) " + SugarQuantity.LOW.getPaint());
+                System.out.println(" 3) " + SugarQuantity.MEDIUM.getPaint());
+                System.out.println(" 4) " + SugarQuantity.HIGH.getPaint());
+                String zucchero = scanner.nextLine();
+                int zuccheroInt = -1;
+                    try {                       
+                        zuccheroInt = Integer.parseInt(zucchero);
+
+                    } catch (NumberFormatException ex) {
+                        System.err.println("Sono ammessi solo numeri");
+                        continue;
+                    }
+                    if(zuccheroInt < 1 || zuccheroInt > 4){
+                        System.out.println("Scelta invalida");
+                        continue;
+                    }
+                    System.out.println("Zucchero selezionato: " + SugarQuantity.of(zuccheroInt).getPaint() );
+                    break;
+            }
+            //</editor-fold>
+            //<editor-fold defaultstate="collapsed" desc="SOLDI">
             System.out.printf("inserire il seguente importo di € %.2f\n", bevanda.getPrezzo());
             System.out.println("-------------------------");
             int id2 = 1;
@@ -117,6 +147,7 @@ public class Main {
                     System.out.printf("totale inserito: € %.2f\n ", soldiInseriti);
                 }
             }
+            //</editor-fold>
             System.out.println("La bevanda: " + nomeFinale + " e' in preparazione");
             for (int i = 0; i < 10; i++) {
                 System.out.print("#");
